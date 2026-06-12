@@ -183,6 +183,29 @@
         </div>
     </div>
 
+    <!-- 2. NOVO ECRÃ DE TRANSIÇÃO CINEMÁTICA (Revelação da Mensagem Especial) -->
+    <div id="love-splash" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0d0204]/95 backdrop-blur-md hidden transition-all duration-1000 opacity-0">
+        <div class="text-center space-y-8 px-4 max-w-2xl transform scale-90 transition-transform duration-1000 ease-out" id="love-splash-content">
+            <div class="relative inline-block">
+                <i class="fa-solid fa-heart text-red-600 text-7xl md:text-9xl animate-pulse filter drop-shadow-[0_0_25px_rgba(230,57,70,0.8)]"></i>
+                <i class="fa-solid fa-sparkles text-gold absolute -top-2 -right-4 text-3xl animate-ping"></i>
+            </div>
+            <div class="space-y-4">
+                <h1 class="font-serif text-rose-100 text-3xl md:text-5xl tracking-[0.25em] uppercase font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                    Feliz Dia dos Namorados
+                </h1>
+                <h2 class="font-cursive text-gold text-6xl md:text-8xl tracking-wide drop-shadow-[0_4px_15px_rgba(212,175,55,0.5)]">
+                    Minha Pretinha
+                </h2>
+            </div>
+            <div class="flex justify-center items-center gap-4 text-rose-400">
+                <div class="h-[1px] w-16 bg-rose-500/50"></div>
+                <span class="text-xs tracking-[0.3em] uppercase text-rose-200/70 font-light">Para sempre nós</span>
+                <div class="h-[1px] w-16 bg-rose-500/50"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- INTERFACE PRINCIPAL (Inicialmente oculta) -->
     <div id="main-content" class="opacity-0 transition-opacity duration-1000">
         
@@ -555,6 +578,7 @@
             console.log("Player pronto!");
         }
 
+        // Se der erro de carregamento (ex: bloqueio de sandbox)
         function onPlayerError(e) {
             console.warn("YouTube bloqueado pelo sandbox. Ativando sintetizador romântico...", e);
         }
@@ -640,13 +664,45 @@
         document.getElementById('open-tribute-btn').addEventListener('click', function() {
             const overlay = document.getElementById('intro-overlay');
             overlay.classList.add('opacity-0');
+            
             setTimeout(() => {
                 overlay.style.display = 'none';
-            }, 1000);
 
-            const mainContent = document.getElementById('main-content');
-            mainContent.classList.remove('opacity-0');
-            mainContent.classList.add('opacity-100');
+                // Dispara o ecrã de Splash Cinemático
+                const splash = document.getElementById('love-splash');
+                const splashContent = document.getElementById('love-splash-content');
+                splash.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    splash.classList.remove('opacity-0');
+                    splash.classList.add('opacity-100');
+                    splashContent.classList.remove('scale-90');
+                    splashContent.classList.add('scale-100');
+                    spawnBurstHearts(30); // Explosão massiva de corações para celebrar!
+                }, 50);
+
+                // Mostra a linda animação "FELIZ DIA DOS NAMORADOS MINHA PRETINHA" por 4.5 segundos
+                setTimeout(() => {
+                    splash.classList.add('opacity-0');
+                    splash.classList.remove('opacity-100');
+                    splashContent.classList.add('scale-95');
+                    
+                    setTimeout(() => {
+                        splash.style.display = 'none';
+                        
+                        // Revela finalmente a interface principal de forma suave
+                        const mainContent = document.getElementById('main-content');
+                        mainContent.classList.remove('opacity-0');
+                        mainContent.classList.add('opacity-100');
+                        
+                        // Inicializa o relógio do tempo e as pétalas flutuantes
+                        setInterval(updateCountdown, 1000);
+                        updateCountdown();
+                        setInterval(spawnFloatingHeartsRandomly, 1000);
+                    }, 1000);
+                }, 4500);
+
+            }, 1000);
 
             musicPlaying = true;
             updateMusicControls();
@@ -667,12 +723,6 @@
                     startFallbackSynth();
                 }
             }, 3200);
-
-            setInterval(updateCountdown, 1000);
-            updateCountdown();
-
-            setInterval(spawnFloatingHeartsRandomly, 1000);
-            spawnBurstHearts(15);
         });
 
         // Alternador de música manual
