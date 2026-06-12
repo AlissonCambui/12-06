@@ -292,44 +292,28 @@
             </div>
         </section>
 
-        <!-- SECÇÃO 3: MURAL DE POLAROIDS (Com Upload Dinâmico e Memória no Navegador) -->
+        <!-- SECÇÃO 3: MURAL DE POLAROIDS AUTOMÁTICO -->
         <section class="py-24 bg-black/30 relative z-10 px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-8 space-y-4">
+                <div class="text-center mb-16 space-y-4">
                     <span class="text-gold uppercase tracking-widest text-xs font-semibold">Retratos do Nosso Destino</span>
                     <h2 class="font-serif text-3xl md:text-5xl text-rose-100 font-bold">As Nossas Lembranças Especiais</h2>
                     <p class="text-rose-200/70 max-w-xl mx-auto text-sm">
-                        Clique em cada Polaroid abaixo para selecionar as fotos (<strong class="text-rose-300">img3.PNG, img2.PNG e img1.PNG</strong>) diretamente do seu dispositivo. O sistema salvará as fotos na memória do seu navegador!
+                        As vossas fotos mais bonitas exibidas em formato clássico e elegante. Clicar nas fotos irá ampliá-las de forma mágica em ecrã inteiro.
                     </p>
-                </div>
-
-                <!-- Painel Informativo Otimizado -->
-                <div class="max-w-2xl mx-auto mb-12 text-center bg-rose-950/20 border border-rose-500/15 rounded-xl p-4 text-xs text-rose-200/80">
-                    <i class="fa-solid fa-circle-info text-gold mr-1.5"></i>
-                    <strong>Como fazer:</strong> Clique sobre a moldura para carregar a foto do seu dispositivo. Uma vez carregada, um clique abre o ecrã inteiro e o ícone de lápis <i class="fa-solid fa-pencil mx-0.5"></i> permite alterar a imagem.
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-4">
                     
-                    <!-- Polaroid 1 - img3.PNG -->
-                    <div class="polaroid bg-white text-zinc-900 p-4 pb-8 rounded shadow-2xl -rotate-2 transform hover:rotate-0 relative group">
-                        <!-- File Input Oculto -->
-                        <input type="file" id="file-input-1" class="hidden" accept="image/*" onchange="previewImage(this, 'display-img-1', 'placeholder-1', 'edit-btn-1', 'renata_photo_1')">
-                        
-                        <!-- Botão Flutuante de Edição -->
-                        <button id="edit-btn-1" class="absolute top-6 right-6 z-20 w-8 h-8 rounded-full bg-black/80 text-white flex items-center justify-center border border-rose-500/30 shadow-lg hover:bg-rose-900 transition duration-200 opacity-0 group-hover:opacity-100" onclick="triggerFileInput('file-input-1')" title="Alterar Foto">
-                            <i class="fa-solid fa-pencil text-xs"></i>
-                        </button>
-
-                        <div class="aspect-[3/4] overflow-hidden bg-zinc-100 relative cursor-pointer" onclick="handlePolaroidClick('file-input-1', 'display-img-1', 'O brilho do seu sorriso que ilumina meu viver... Minha eterna namorada.')">
-                            <!-- Tag de Imagem (Inicialmente invisível) -->
-                            <img id="display-img-1" class="w-full h-full object-cover hidden transition duration-500 group-hover:scale-105" alt="Nós dois">
-                            
-                            <!-- Placeholder de Upload -->
-                            <div id="placeholder-1" class="absolute inset-0 bg-gradient-to-br from-rose-50 to-rose-100 flex flex-col items-center justify-center p-6 text-center space-y-3">
-                                <i class="fa-solid fa-camera text-rose-500 text-3xl animate-bounce"></i>
-                                <span class="font-serif text-sm font-semibold text-rose-900 leading-tight">Carregar img3.PNG</span>
-                                <span class="text-[10px] text-zinc-500 font-light max-w-[140px]">Clique aqui para inserir o arquivo do seu dispositivo</span>
+                    <!-- Polaroid 1 - WhatsApp Image 2026-06-11 at 22.32.47.jpeg -->
+                    <div class="polaroid bg-white text-zinc-900 p-4 pb-8 rounded shadow-2xl -rotate-2 transform hover:rotate-0 cursor-pointer" onclick="openLightbox('WhatsApp%20Image%202026-06-11%20at%2022.32.47.jpeg', 'O brilho do seu sorriso que ilumina meu viver... Minha eterna namorada.')">
+                        <div class="aspect-[3/4] overflow-hidden bg-zinc-100 relative group">
+                            <img src="WhatsApp%20Image%202026-06-11%20at%2022.32.47.jpeg" 
+                                 class="w-full h-full object-cover transition duration-500 group-hover:scale-105" 
+                                 alt="Nós dois"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600';">
+                            <div class="absolute inset-0 bg-rose-900/10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-2xl drop-shadow"></i>
                             </div>
                         </div>
                         <div class="mt-6 text-center select-none">
@@ -338,25 +322,15 @@
                         </div>
                     </div>
 
-                    <!-- Polaroid 2 - img2.PNG -->
-                    <div class="polaroid bg-white text-zinc-900 p-4 pb-8 rounded shadow-2xl rotate-1 transform hover:rotate-0 relative group">
-                        <!-- File Input Oculto -->
-                        <input type="file" id="file-input-2" class="hidden" accept="image/*" onchange="previewImage(this, 'display-img-2', 'placeholder-2', 'edit-btn-2', 'renata_photo_2')">
-                        
-                        <!-- Botão Flutuante de Edição -->
-                        <button id="edit-btn-2" class="absolute top-6 right-6 z-20 w-8 h-8 rounded-full bg-black/80 text-white flex items-center justify-center border border-rose-500/30 shadow-lg hover:bg-rose-900 transition duration-200 opacity-0 group-hover:opacity-100" onclick="triggerFileInput('file-input-2')" title="Alterar Foto">
-                            <i class="fa-solid fa-pencil text-xs"></i>
-                        </button>
-
-                        <div class="aspect-[3/4] overflow-hidden bg-zinc-100 relative cursor-pointer" onclick="handlePolaroidClick('file-input-2', 'display-img-2', 'Cada brinde, cada risada, a cumplicidade que nos faz um só.')">
-                            <!-- Tag de Imagem (Inicialmente invisível) -->
-                            <img id="display-img-2" class="w-full h-full object-cover hidden transition duration-500 group-hover:scale-105" alt="Nosso Brinde">
-                            
-                            <!-- Placeholder de Upload -->
-                            <div id="placeholder-2" class="absolute inset-0 bg-gradient-to-br from-rose-50 to-rose-100 flex flex-col items-center justify-center p-6 text-center space-y-3">
-                                <i class="fa-solid fa-camera text-rose-500 text-3xl animate-bounce"></i>
-                                <span class="font-serif text-sm font-semibold text-rose-900 leading-tight">Carregar img2.PNG</span>
-                                <span class="text-[10px] text-zinc-500 font-light max-w-[140px]">Clique aqui para inserir o arquivo do seu dispositivo</span>
+                    <!-- Polaroid 2 - WhatsApp Image 2026-06-11 at 22.32.48 (1).jpeg -->
+                    <div class="polaroid bg-white text-zinc-900 p-4 pb-8 rounded shadow-2xl rotate-1 transform hover:rotate-0 cursor-pointer" onclick="openLightbox('WhatsApp%20Image%202026-06-11%20at%2022.32.48%20(1).jpeg', 'Cada brinde, cada risada, a cumplicidade que nos faz um só.')">
+                        <div class="aspect-[3/4] overflow-hidden bg-zinc-100 relative group">
+                            <img src="WhatsApp%20Image%202026-06-11%20at%2022.32.48%20(1).jpeg" 
+                                 class="w-full h-full object-cover transition duration-500 group-hover:scale-105" 
+                                 alt="Nosso Brinde"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600';">
+                            <div class="absolute inset-0 bg-rose-900/10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-2xl drop-shadow"></i>
                             </div>
                         </div>
                         <div class="mt-6 text-center select-none">
@@ -365,25 +339,15 @@
                         </div>
                     </div>
 
-                    <!-- Polaroid 3 - img1.PNG -->
-                    <div class="polaroid bg-white text-zinc-900 p-4 pb-8 rounded shadow-2xl -rotate-1 transform hover:rotate-0 relative group">
-                        <!-- File Input Oculto -->
-                        <input type="file" id="file-input-3" class="hidden" accept="image/*" onchange="previewImage(this, 'display-img-3', 'placeholder-3', 'edit-btn-3', 'renata_photo_3')">
-                        
-                        <!-- Botão Flutuante de Edição -->
-                        <button id="edit-btn-3" class="absolute top-6 right-6 z-20 w-8 h-8 rounded-full bg-black/80 text-white flex items-center justify-center border border-rose-500/30 shadow-lg hover:bg-rose-900 transition duration-200 opacity-0 group-hover:opacity-100" onclick="triggerFileInput('file-input-3')" title="Alterar Foto">
-                            <i class="fa-solid fa-pencil text-xs"></i>
-                        </button>
-
-                        <div class="aspect-[3/4] overflow-hidden bg-zinc-100 relative cursor-pointer" onclick="handlePolaroidClick('file-input-3', 'display-img-3', 'Meu porto seguro, meu aconchego, ontem, hoje e para sempre.')">
-                            <!-- Tag de Imagem (Inicialmente invisível) -->
-                            <img id="display-img-3" class="w-full h-full object-cover hidden transition duration-500 group-hover:scale-105" alt="Renata e Eu">
-                            
-                            <!-- Placeholder de Upload -->
-                            <div id="placeholder-3" class="absolute inset-0 bg-gradient-to-br from-rose-50 to-rose-100 flex flex-col items-center justify-center p-6 text-center space-y-3">
-                                <i class="fa-solid fa-camera text-rose-500 text-3xl animate-bounce"></i>
-                                <span class="font-serif text-sm font-semibold text-rose-900 leading-tight">Carregar img1.PNG</span>
-                                <span class="text-[10px] text-zinc-500 font-light max-w-[140px]">Clique aqui para inserir o arquivo do seu dispositivo</span>
+                    <!-- Polaroid 3 - WhatsApp Image 2026-06-11 at 22.32.48.jpeg -->
+                    <div class="polaroid bg-white text-zinc-900 p-4 pb-8 rounded shadow-2xl -rotate-1 transform hover:rotate-0 cursor-pointer" onclick="openLightbox('WhatsApp%20Image%202026-06-11%20at%2022.32.48.jpeg', 'Meu porto seguro, meu aconchego, ontem, hoje e para sempre.')">
+                        <div class="aspect-[3/4] overflow-hidden bg-zinc-100 relative group">
+                            <img src="WhatsApp%20Image%202026-06-11%20at%2022.32.48.jpeg" 
+                                 class="w-full h-full object-cover transition duration-500 group-hover:scale-105" 
+                                 alt="Renata e Eu"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600';">
+                            <div class="absolute inset-0 bg-rose-900/10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-2xl drop-shadow"></i>
                             </div>
                         </div>
                         <div class="mt-6 text-center select-none">
@@ -425,7 +389,7 @@
 
                 <div class="text-center space-y-2 relative z-10 pt-6">
                     <p class="text-rose-300/60 text-xs tracking-widest uppercase">Com todo o meu amor, para sempre seu,</p>
-                    <p class="font-cursive text-gold text-4xl">Seu Eterno Namorado</p>
+                    <p class="font-cursive text-gold text-4xl">Seu Eeterno Namorado</p>
                 </div>
             </div>
         </section>
@@ -672,78 +636,6 @@
             isUsingFallbackSynth = false;
         }
 
-        // CONTROLADOR DE UPLOAD DINÂMICO DE FOTOS
-        // Previne clique duplo de abrir o lightbox ao selecionar ficheiro
-        function triggerFileInput(id) {
-            event.stopPropagation();
-            document.getElementById(id).click();
-        }
-
-        function handlePolaroidClick(inputId, imgId, captionText) {
-            const img = document.getElementById(imgId);
-            if (img && !img.classList.contains('hidden') && img.src !== "") {
-                // Se a foto já foi carregada, abre o Lightbox!
-                openLightbox(img.src, captionText);
-            } else {
-                // Se não há foto, abre a janela de upload do sistema
-                document.getElementById(inputId).click();
-            }
-        }
-
-        // Processa o upload e guarda na memória local (localStorage)
-        function previewImage(input, displayImgId, placeholderId, editBtnId, localStorageKey) {
-            const file = input.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const dataUrl = e.target.result;
-                    
-                    // Atualiza elementos HTML
-                    const img = document.getElementById(displayImgId);
-                    img.src = dataUrl;
-                    img.classList.remove('hidden');
-                    
-                    const placeholder = document.getElementById(placeholderId);
-                    if (placeholder) placeholder.classList.add('hidden');
-                    
-                    const editBtn = document.getElementById(editBtnId);
-                    if (editBtn) editBtn.classList.remove('opacity-0');
-                    
-                    // Salva imagem localmente
-                    try {
-                        localStorage.setItem(localStorageKey, dataUrl);
-                    } catch (error) {
-                        console.warn("Quota excedida de gravação local, mas a foto funcionará nesta sessão!", error);
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        // Carrega imagens guardadas anteriormente ao iniciar a página
-        function loadSavedImages() {
-            const config = [
-                { key: 'renata_photo_1', imgId: 'display-img-1', placeholderId: 'placeholder-1', editId: 'edit-btn-1' },
-                { key: 'renata_photo_2', imgId: 'display-img-2', placeholderId: 'placeholder-2', editId: 'edit-btn-2' },
-                { key: 'renata_photo_3', imgId: 'display-img-3', placeholderId: 'placeholder-3', editId: 'edit-btn-3' }
-            ];
-
-            config.forEach(item => {
-                const savedData = localStorage.getItem(item.key);
-                if (savedData) {
-                    const img = document.getElementById(item.imgId);
-                    img.src = savedData;
-                    img.classList.remove('hidden');
-                    
-                    const placeholder = document.getElementById(item.placeholderId);
-                    if (placeholder) placeholder.classList.add('hidden');
-                    
-                    const editBtn = document.getElementById(item.editId);
-                    if (editBtn) editBtn.classList.remove('opacity-0');
-                }
-            });
-        }
-
         // Inicia a aplicação ao abrir o envelope
         document.getElementById('open-tribute-btn').addEventListener('click', function() {
             const overlay = document.getElementById('intro-overlay');
@@ -758,9 +650,6 @@
 
             musicPlaying = true;
             updateMusicControls();
-
-            // Carrega fotos já guardadas na memória local
-            loadSavedImages();
 
             // Tenta reproduzir YouTube
             if (player && typeof player.playVideo === 'function') {
@@ -933,6 +822,7 @@
             createParticle(randomX, 0);
         }
 
+        // Gera rajadas de corações de tempos a tempos
         function spawnBurstHearts(count) {
             for (let i = 0; i < count; i++) {
                 const randomX = Math.random() * 100;
