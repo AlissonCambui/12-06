@@ -397,7 +397,7 @@
 
                 <div class="font-serif text-rose-100/90 leading-relaxed text-base md:text-lg space-y-6 text-justify relative z-10 indent-8 font-light">
                     <p>
-                        Hoje, às vésperas de mais um Dia dos Namorados, o meu coração transborda ao olhar para trás e contemplar a nossa história. Iniciámos a nossa jornada em <strong class="text-rose-300">28 de março de 2013</strong>. Treze anos se passaram... e se eu tivesse de voltar no tempo e escolher tudo novamente, eu escolheria-te em cada vida, em cada segundo.
+                        Hoje, neste Dia dos Namorados, o meu coração transborda ao olhar para trás e contemplar a nossa história. Iniciámos a nossa jornada em <strong class="text-rose-300">28 de março de 2013</strong>. Treze anos se passaram... e se eu tivesse de voltar no tempo e escolher tudo novamente, eu escolheria-te em cada vida, em cada segundo.
                     </p>
                     <p>
                         Crescemos juntos, amadurecemos lado a lado, enfrentámos tempestades com a certeza de que o nosso abraço seria sempre o abrigo mais seguro. Tu não és apenas a minha namorada e esposa; és a minha maior inspiração, a dona da gargalhada que desmonta qualquer uma das minhas preocupações e o motivo pelo qual eu busco ser uma pessoa melhor todos os dias.
@@ -814,10 +814,12 @@
             card.classList.toggle('flipped');
         }
 
+        // Sistema de rolagem suave
         function scrollToContent() {
             document.getElementById('story-section').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Visualizador lightbox das fotos Polaroids
         function openLightbox(src, caption) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox-caption').innerText = caption;
